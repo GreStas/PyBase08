@@ -1,9 +1,14 @@
-from cars import Car
+from .cars import Car
 
 
 class Salon:
 
     def __init__(self, catalog, cash=0.0):
+        """
+
+        :param catalog: изменяемая коллекция объектов Car
+        :param cash: float - выручка салона
+        """
         self.catalog = catalog
         self.cash = cash
 
@@ -34,10 +39,10 @@ class Salon:
         :return: None
         """
         for car in cars:
-            self.append(car.name, car.color, car.price * 1.3)
+            self.append(car.name, car.color, int(car.price * 1.3))
         if container:
             for car in container:
-                self.append(car.name, car.color, car.price * 1.4)
+                self.append(car.name, car.color, int(car.price * 1.4))
 
     def append(self, name, color, price):
         self.catalog.append(Car(name, color, price))
@@ -45,11 +50,13 @@ class Salon:
     def sail(self, name, color, price):
         """
             Продажа одного автомобиля
+
         :param name:
         :param color:
         :param price:
         :return:
         """
+        # Найти порядковый номер автомобиля с подходящими параметратми в каталоге
         for i, car in enumerate(self.catalog):
             if (car.name, car.color, car.price) == (name, color, price):
                 del self.catalog[i]  # удаляем элемент из списка, но не сам объект, ссылка на котроый хранится в car

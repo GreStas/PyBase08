@@ -48,6 +48,7 @@ car_container = (
 )
 for car in car_container:
     print(f"\t{str(car)}")
+salon.delivery(*cars, container=car_container)
 print('Состояние салона:')
 print(salon)
 

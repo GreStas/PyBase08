@@ -1,4 +1,8 @@
 class Car(object):
+    """
+    self.price - чистая цена. Может быть изменена методом  "Акция"
+    self.skidka - по-умолчанию отсутсвует. Создаётся методом "Акция"
+    """
 
     def __init__(self, name, color, price):
         self.name = name
